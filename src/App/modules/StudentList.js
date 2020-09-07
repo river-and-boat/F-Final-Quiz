@@ -6,7 +6,9 @@ export default class StudentList extends Component{
   // eslint-disable-next-line react/state-in-constructor
   state = {
     // eslint-disable-next-line react/no-unused-state
-    studentList: []
+    studentList: [],
+    type: 'hidden',
+    name: ''
   }
 
    componentDidMount() {
@@ -35,10 +37,52 @@ export default class StudentList extends Component{
       <header>
         <h1>学员列表</h1>
       </header>
-      <main>
+      <main id="listBody">
         {listBody}
-        <span id="add-student">+添加学员</span>
+        <input id="newStudent" onChange={this.textChange} value={this.state.name} type={this.state.type} onKeyPress={this.postNewStudent}/>
+        <span id="add-student" onClick={this.addNewStudent}>+添加学员</span><br/>
       </main>
     </div>
+  }
+
+  textChange = e => {
+    this.setState({
+      name: e.target.value
+    });
+  }
+
+  addNewStudent = () => {
+    this.setState({
+      type: 'text'
+    });
+  }
+
+  postNewStudent = () => {
+    console.log(this.state.name);
+    fetch("/gtb/student", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: this.state.name
+      // eslint-disable-next-line consistent-return
+    }).then(data => {
+      if (data.status === 201) {
+        fetch('http://localhost:8080/gtb/students')
+          // eslint-disable-next-line consistent-return
+          .then(data2 => {
+            if (data2.status === 200) {
+              return data2.json();
+            }
+          }).then(dataJson => {
+          this.setState({
+            // eslint-disable-next-line react/no-unused-state
+            studentList: dataJson
+          });
+        }).catch(error => {
+          console.log(error)
+        });
+      }
+    })
   }
 }
