@@ -29,11 +29,16 @@ export default class StudentList extends Component{
   render() {
     const listBody = this.state.studentList.map((item, index) => {
       return (
-        <span key={index}>{item}</span>
+        <span key={index}>{`${item.id}.${item.studentName}`}</span>
       )});
     return <div id="show-student-list">
-      {listBody}
-      <span id="add-student">+添加学员</span>
+      <header>
+        <h1>学员列表</h1>
+      </header>
+      <main>
+        {listBody}
+        <span id="add-student">+添加学员</span>
+      </main>
     </div>
   }
 }

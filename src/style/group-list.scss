@@ -1,0 +1,41 @@
+h1 {
+  margin: 0;
+}
+
+input {
+  margin: 0;
+  border: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header input {
+  background-color: red;
+  color: white;
+  height: 40px;
+  margin-right: 20px;
+  align-items: center;
+}
+
+header h1 {
+  display: flex;
+}
+
+.group-title {
+  background-color: #929aab;
+  height: 30px;
+  color: white;
+  text-align: center;
+  font-size: larger;
+  line-height: 30px;
+  margin: 15px 0px 0px 0px;
+  border: black solid 1px;
+}
+
+.group-member {
+  background-color: #eeeeee;
+  border: black solid 1px;
+}
