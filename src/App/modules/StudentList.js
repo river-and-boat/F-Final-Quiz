@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import '../../style/student-list.scss'
+import FormUser from './form/newUser';
 
 export default class StudentList extends Component{
 
   state = {
     studentList: [],
     visible: false
-  }
-
-  setVisible = (e) => {
-    alert(e);
   }
 
   componentDidMount() {
@@ -29,6 +26,12 @@ export default class StudentList extends Component{
     });
   }
 
+  setStudentList = (trainers) => {
+    this.setState({
+      studentList: trainers
+    });
+  }
+
   render() {
     const listBody = this.state.studentList.map((item, index) => {
       return (
@@ -43,6 +46,7 @@ export default class StudentList extends Component{
           {/* eslint-disable-next-line react/button-has-type */}
           <button onClick={this.setVisible}>+添加学员</button><br/>
         </main>
+      <FormUser onChangeStatus = {this.setStudentList} />
     </div>
   }
 }
