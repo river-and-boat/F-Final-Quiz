@@ -10,7 +10,7 @@ export default class GroupList extends Component{
   }
 
   groupStudent = () => {
-    fetch('http://localhost:8080/gtb/groups/random')
+    fetch('http://localhost:8080/groups')
       // eslint-disable-next-line consistent-return
       .then(data => {
         if (data.status === 200) {
@@ -41,7 +41,7 @@ export default class GroupList extends Component{
         <div className="group-title" key={index}>{item}</div>
         <div className="group-member">{groups[item].map((item2, index2) => {
           return (
-            <span key={index2}>{`${item2.id}.${item2.studentName}`}</span>
+            <span key={index2}>{`${item2.id}.${item2.name}`}</span>
           )})
         }</div>
       </div>

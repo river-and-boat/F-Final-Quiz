@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.scss';
-import GroupList from './modules/GroupList';
 import StudentList from './modules/StudentList';
+import GroupList from './modules/GroupList';
+import FormUser from './modules/form/newUser';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div data-testid="app" className="App">
         <GroupList />
         <StudentList />
+        <FormUser />
       </div>
     );
   }

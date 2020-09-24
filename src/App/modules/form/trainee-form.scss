@@ -1,0 +1,26 @@
+.add-trainee {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 800px;
+  border: black 2px solid;
+  margin-top: 50px;
+  padding: 20px;
+  input {
+    width: 200px;
+    height: 25px;
+    border: 2px solid black;
+    margin-bottom: 5px;
+  }
+}
+
+.user-operate {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.submit, .cancel {
+  margin-right: 10px;
+}
