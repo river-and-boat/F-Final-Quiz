@@ -39,3 +39,13 @@ header h1 {
   background-color: #eeeeee;
   border: black solid 1px;
 }
+
+.trainer-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}

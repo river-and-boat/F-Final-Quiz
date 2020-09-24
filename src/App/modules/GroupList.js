@@ -6,11 +6,17 @@ export default class GroupList extends Component{
   // eslint-disable-next-line react/state-in-constructor
   state = {
     // eslint-disable-next-line react/no-unused-state
-    groupList: {}
+    groupList: []
   }
 
   groupStudent = () => {
-    fetch('http://localhost:8080/groups')
+    fetch('http://localhost:8080/groups/auto-grouping',{
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
       // eslint-disable-next-line consistent-return
       .then(data => {
         if (data.status === 200) {
@@ -38,8 +44,16 @@ export default class GroupList extends Component{
 
     const body = keyArray.map((item, index) => {
       return <div>
-        <div className="group-title" key={index}>{item}</div>
-        <div className="group-member">{groups[item].map((item2, index2) => {
+        <div className="group-title" key={index}>
+          <div className="trainer-header">
+            {groups[item].name}
+            {groups[item].trainers.map((item2, index2) => {
+            return (
+              <a key={index2}>{`${item2.id}.${item2.name}`}</a>
+            )})
+          }</div>
+        </div>
+        <div className="group-member">{groups[item].trainees.map((item2, index2) => {
           return (
             <span key={index2}>{`${item2.id}.${item2.name}`}</span>
           )})

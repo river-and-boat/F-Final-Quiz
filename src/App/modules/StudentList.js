@@ -5,8 +5,7 @@ import FormUser from './form/newUser';
 export default class StudentList extends Component{
 
   state = {
-    studentList: [],
-    visible: false
+    studentList: []
   }
 
   componentDidMount() {
@@ -26,9 +25,9 @@ export default class StudentList extends Component{
     });
   }
 
-  setStudentList = (trainers) => {
+  setStudentList = (trainees) => {
     this.setState({
-      studentList: trainers
+      studentList: trainees
     });
   }
 
