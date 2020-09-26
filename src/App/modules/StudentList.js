@@ -9,6 +9,7 @@ export default class StudentList extends Component{
   }
 
   componentDidMount() {
+    // TODO feedback: 建议把数据请求提取到单独的service
     fetch('http://localhost:8080/trainees?grouped=false')
       // eslint-disable-next-line consistent-return
       .then(data => {

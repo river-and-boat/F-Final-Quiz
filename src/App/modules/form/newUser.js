@@ -14,6 +14,8 @@ export default class FormUser extends Component {
 
   inputOnChange = (event) => {
     const {value} = event.target;
+
+    // TODO feedback：不建议使用switch
     switch (event.target.id) {
       case "username":
         this.setState({
@@ -72,6 +74,7 @@ export default class FormUser extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
+    // TODO feedback：建议用解构state赋值，代码更可读
     if (validNotNull(this.state.name) && validNotNull(this.state.email)
       && validNotNull(this.state.office) && validNotNull(this.state.zoom)
       && validNotNull(this.state.github) && validEmail(this.state.email)) {
@@ -88,6 +91,8 @@ export default class FormUser extends Component {
 
   render() {
     return (
+      // TODO feedback：需要格式化，可读性太低
+      // TODO feedback：建议用解构state赋值，代码更可读
       <form className="add-trainee">
         <h1>新增学员</h1>
         <label htmlFor="username">姓名</label>

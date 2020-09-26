@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './trainee-form.scss';
 import { validEmail, validNotNull } from './formValid';
 
+// TODO feedback：文件命名和组件名保持一致，不然很难维护
 export default class FormTrainer extends Component {
   state = {
     name: '',

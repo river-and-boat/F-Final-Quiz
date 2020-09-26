@@ -1,3 +1,4 @@
+// TODO feedback：全局样式建议放在reboot.scss中
 h1 {
   margin: 0;
 }
@@ -7,6 +8,7 @@ input {
   border: none;
 }
 
+// TODO feedback：不建议使用标签选择器
 header {
   display: flex;
   justify-content: space-between;
